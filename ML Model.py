@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
-
+from PIL import Image
 import pandas_profiling
 from streamlit_pandas_profiling import st_profile_report  
 
@@ -13,7 +13,9 @@ df = None
 
 with st.sidebar:
     st.title("I'm the Data God....!")
-    Choice = st.radio("Navigation", ["Upload", "Profile Report", "Automatic Model Training"])
+    image = Image.open("C:/Users/KALYAN/Desktop/databot-icon.png")
+    st.image(image, use_column_width=True)
+    Choice = st.radio("Navigation", ["Upload", "Profile Report", "Model Training"])
 
 df = None
 
@@ -40,7 +42,7 @@ if Choice == "Profile Report":
     else:
         st.warning("Please upload the dataset first ⚠️")
             
-if Choice == "Automatic Model Training":
+if Choice == "Model Training":
     if df is not None:
         target = st.selectbox("Select the Target Feature in the Dataset", df.columns)
         type = st.selectbox("Select the Problem Type",("Regression", "Classification"))
