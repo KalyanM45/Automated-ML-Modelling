@@ -2,3 +2,4 @@ pandas_profiling
 streamlit-pandas-profiling
 pycaret
 streamlit
+PIL
